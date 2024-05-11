@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisión General</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>Revisión General</h1>
+    </header>
+
+    
+    <main role="main" class="container">
+        <div class="container">
+            <div class="accordion" id="accordion">
+              <div class="card">
+                <div class="card-header" id="datos-cliente-heading">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-datos-cliente" aria-expanded="true" aria-controls="collapse-datos-cliente">
+                      Datos del Cliente
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapse-datos-cliente" class="collapse show" aria-labelledby="datos-cliente-heading" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <!-- Aquí iría el formulario del cliente -->
+                    <form id="cliente-formulario">
+                      <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="cedula">Cédula:</label>
+                        <input type="text" class="form-control" id="cedula" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="correo">Correo:</label>
+                        <input type="email" class="form-control" id="correo" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" class="form-control" id="direccion" required>
+                      </div>
+                    </form>
+                    <button class="btn btn-primary" id="generarPDFBtn">Generar PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+            <div class="card">
+                <div class="card-header" id="datos-vehiculo-heading">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-datos-vehiculo" aria-expanded="false" aria-controls="collapse-datos-vehiculo">
+                            Datos del Vehículo
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse-datos-vehiculo" class="collapse" aria-labelledby="datos-vehiculo-heading" data-parent="#accordion">
+                    <div class="card-body">
+                        <!-- Aquí iría el formulario del vehículo -->
+                        <form id="vehiculo-formulario">
+                            <div class="form-group">
+                                <label for="marca">Marca:</label>
+                                <input type="text" class="form-control" id="marca" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="linea">Línea:</label>
+                                <input type="text" class="form-control" id="linea" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="modelo">Modelo:</label>
+                                <input type="text" class="form-control" id="modelo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="placa">Placa:</label>
+                                <input type="text" class="form-control" id="placa" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cilindraje">Cilindraje:</label>
+                                <input type="text" class="form-control" id="cilindraje" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="kilometraje">Kilometraje:</label>
+                                <input type="text" class="form-control" id="kilometraje" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color:</label>
+                                <input type="text" class="form-control" id="color" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header" id="revision-heading">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-revision" aria-expanded="false" aria-controls="collapse-revision">
+                            Revisión
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse-revision" class="collapse" aria-labelledby="revision-heading" data-parent="#accordion">
+                    <div class="card-body">
+                        <div id="trabajos-principales">
+                            <h3>Revisión de accesorios</h3>
+                            <ul class="revision-list">
+                                <li>Testigos encendidos 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz de techo 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Radio 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Cocuyos 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luces medias 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luces altas 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luces exploradoras 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luces de parqueo 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz direccional izq 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz direccional der 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Cocuyos traseros 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz de freno 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz de reversa 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz de placa 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Luz antiniebla 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Plumillas delanteras 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Plumilla trasera 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Nivel liquido de frenos 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Nivel liquido hidraulico 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Nivel liquido refrigerante 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Nivel liquido de aceite de motor 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Nivel liquido de transmisión  
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Nivel liquido limpia parabrisas 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Estado filtro de aire de motor 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                <li>Estado filtro de aire acondicionado 
+                                    <select class="form-control revision-select" onchange="updateRevision(this)">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="bueno">Bueno</option>
+                                        <option value="malo">Malo</option>
+                                        <option value="na">N/A</option>
+                                    </select>
+                                    <div class="comentario-container" style="display: none;">
+                                        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                    </div>
+                                </li>
+                                
+                        
+                                <h3>Motor funcionando</h3>
+                                <ul>
+                                    <li>Revoluciones inestables 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Funcionamiento compresor a/a 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Funcionamiento bomba hidraulica 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Funcionamiento bomba de agua 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Funcionamiento de alternador (carga) 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Estado de bateria 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                                                  
+                                    
+                                </ul>
+                                <h3>Revisión de fugas</h3>
+                                <ul>
+                                  
+                                    <li>Empaque tapavalvulas 
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+<li>Reten eje de levas
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Reten delantero cigueñal
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Empaque tapa de repartición
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Empaque carter
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Ligas empaque multiple admisión
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Empaque multiple de escape
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Reten trasero cigueñal
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Retenedores de eje
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Empaque carter caja
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Guardapolvos de eje lado caja
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Guardapolvos de eje lado rueda
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Radiador
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Radiador de a/a
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Enfriador de aceite
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Mangueras radiador
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Mangueras calefacción
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Manguera cuerpo de aceleración
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Termostato
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Deposito de refrigerante
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Tapa deposito de refrigerante
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Tapa radiador
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Bomba de dirección hidraulica
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Mangueras de dirección hidraulico
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Caja de direccion hidraulica
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Bomba de frenos
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+
+                                </ul>
+                                <h3>Revisión de suspensión</h3>
+                                <ul>
+                                    <li>Soporte superior de motor
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Soporte superior de caja
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Soporte delantero de motor
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Soporte trasero de caja
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Amortiguadores delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bases y rodamientos Amortiguadores delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Muñecos (Tirantes) delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Tijeras (Estructura)
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bujes de tijera superior
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Rotula tijera superior
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option
+                                    
+                                    >
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bujes de tijera inferior
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Rotulas tijera inferior
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Rodamientos delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Terminales axiales
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Brazos axiales
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Caja de dirección
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bujes cuna
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Amortiguadores traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div
+                                    
+                                     class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bases de amortiguadores traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Muñecos (Tirantes) traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Rodamientos traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bujes puente trasero
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bujes tijeras traseras
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Pernos y/o esparragos
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Llantas delanteras
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Llantas traseras
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="
+                                    
+                                    Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Llanta de repuesto
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                        
+                                </ul>
+                                <h3>Revisión de frenos</h3>
+                                <ul>
+                                    <li>Servofreno
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bomba de freno
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Discos delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Pastillas delanteras
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Pasadores de mordaza
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Quitaruidos delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Ligas de caliper delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Mangueras de frenos delanteros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Discos traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Pastillas traseras
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Pasadores de mordaza traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="m
+                                    
+                                    alo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Quitaruidos traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Ligas de caliper traseros
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Mangueras de freno traseras
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Bandas
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Campanas
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Cilindros de frenos
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                    <li>Guaya freno de mano
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h3>Verificaciones en el compartimiento de motor</h3>
+                                <ul>
+<li>Correa de repartición
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Correa de accesorios
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Filtro de combustible
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Bobinas y/o cables de alta
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+<li>Bujias
+    <select class="form-control revision-select" onchange="updateRevision(this)">
+        <option value="">Seleccione una opción</option>
+        <option value="bueno">Bueno</option>
+        <option value="malo">Malo</option>
+        <option value="na">N/A</option>
+    </select>
+    <div class="comentario-container" style="display: none;">
+        <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+    </div>
+</li>
+                                </ul>
+                                <h3>Scanner</h3>
+                                <ul>
+                                    <li>Verificación de codigos presentes en modulos
+                                        <select class="form-control revision-select" onchange="updateRevision(this)">
+                                            <option value="">Seleccione una opción</option>
+                                            <option value="bueno">Bueno</option>
+                                            <option value="malo">Malo</option>
+                                            <option value="na">N/A</option>
+                                        </select>
+                                        <div class="comentario-container" style="display: none;">
+                                            <textarea class="form-control comentario" rows="3" placeholder="Agrega un comentario"></textarea>
+                                        </div>
+                                    </li>
+                                                                    </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
